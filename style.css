@@ -1,0 +1,200 @@
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;overflow-x:hidden}
+body{background:#f7f5f0;font-family:'Segoe UI', sans-serif}
+img{max-width:100%;display:block;height:auto}
+
+.page{
+  width:100%;
+  max-width:1200px;
+  background:#fff;
+  margin:0 auto;
+  border-radius:0;
+  position:relative;
+  padding:0;
+  overflow:visible;
+}
+
+/* Header */
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 30px;flex-wrap:wrap;gap:10px}
+.logo{display:flex;align-items:center;gap:8px;font-size:18px}
+.logo small{display:block;font-size:8px;color:#999}
+.logo .icon{font-size:22px}
+nav{display:flex;gap:16px;font-size:13px;color:#222;flex-wrap:wrap}
+nav a{cursor:pointer}
+.contact{text-align:right;font-size:11px}
+.contact b{display:block;font-size:13px}
+
+/* Hero */
+.hero{display:flex;justify-content:space-between;align-items:center;padding:20px 30px 30px;gap:20px}
+.hero-text{width:50%}
+.hero-text h1{font-family:'Playfair Display',serif;font-size:40px;line-height:1.1;font-weight:700}
+.hero-text h1 i{font-weight:400;font-style:italic}
+.hero-text p{font-size:11px;color:#888;margin:12px 0;line-height:1.6;max-width:330px}
+.order-btn{background:#ffcc00;border:none;padding:9px 20px;border-radius:2px;font-size:11px;font-weight:700;cursor:pointer}
+.hero-img{width:50%;text-align:center}
+.main-bread{width:100%;max-width:440px;border-radius:12px;margin-left:auto}
+
+/* decor نخفيه عشان هو اللي مبوظ الدنيا */
+.decor{display:none !important}
+.dots{display:flex;justify-content:center;gap:6px;padding:10px}
+.dots span{width:6px;height:6px;background:#ddd;border-radius:50%}
+.dots span.active{background:#ffcc00}
+
+/* Hot week */
+.hot-week{text-align:center;padding:40px 30px;background:#fafaf8}
+.section-title{font-family:'Playfair Display',serif;font-size:26px;font-style:italic;margin-bottom:30px}
+.products{display:flex;justify-content:center;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.product{width:180px;text-align:center}
+.product.center{width:240px}
+.product img{width:120px;height:120px;object-fit:cover;margin:0 auto 12px;border-radius:50%}
+.product.center img{width:160px;height:160px}
+.product h3{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;margin-bottom:5px}
+.product p{font-size:10px;color:#999;line-height:1.5}
+
+/* About */
+.about-years{background:#fdfcfa;padding:50px 30px;text-align:center}
+.about-title{font-size:22px;margin-bottom:40px;font-family:'Playfair Display',serif}
+.about-row{display:flex;align-items:center;justify-content:center;gap:40px;margin-bottom:50px;max-width:1000px;margin-left:auto;margin-right:auto;text-align:left}
+.about-features{width:320px}
+.feat{display:flex;gap:12px;margin-bottom:20px}
+.f-icon{width:26px;height:26px;background:#fff8e1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;border:1px solid #ffeaa7}
+.feat h4{font-size:12px;font-family:'Playfair Display',serif;font-style:italic;margin-bottom:4px}
+.feat p{font-size:10px;color:#999}
+.about-img{width:380px}
+.about-img img{width:100%;border-radius:8px}
+
+/* Menu */
+.menu-section{background:#fff;padding:50px 30px;text-align:center}
+.menu-tabs{display:flex;justify-content:center;gap:30px;margin-bottom:30px;border-bottom:1px solid #eee;padding-bottom:10px;overflow-x:auto}
+.tab{cursor:pointer;opacity:.4;padding-bottom:10px;border-bottom:2px solid transparent;white-space:nowrap;flex-shrink:0}
+.tab.active{opacity:1;border-color:#ffcc00}
+.tab img{width:45px;height:24px;object-fit:contain;margin:0 auto 5px;filter:grayscale(1)}
+.tab.active img{filter:grayscale(0)}
+.tab span{font-size:10px}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;max-width:900px;margin:0 auto}
+.m-item{width:100%;text-align:center;overflow:hidden}
+.m-item img{width:110px;height:110px;object-fit:cover;border-radius:50%;margin:0 auto;display:block}
+.m-item h3{font-size:12px;font-family:'Playfair Display',serif;font-style:italic;margin:10px 0 4px}
+.m-item p{font-size:9px;color:#999}
+.m-item b{font-size:10px;display:block;margin-top:3px}
+
+/* Delivery */
+.delivery-path{background:#fdfcfa;padding:50px 30px;text-align:center;position:relative}
+.steps{display:flex;justify-content:center;gap:50px;max-width:900px;margin:0 auto;flex-wrap:wrap}
+.step{width:160px;text-align:left;position:relative}
+.s-icon{font-size:16px;margin-bottom:6px;display:block;color:#e8c07a}
+.s-num{position:absolute;left:-18px;top:15px;font-size:32px;color:#f7e8c4;font-family:'Playfair Display',serif}
+.step h4{font-size:12px;font-family:'Playfair Display',serif;font-style:italic;margin-bottom:5px}
+.step p{font-size:9px;color:#999}
+.scooter{font-size:28px;margin-top:40px}
+.wave-top{display:none}
+
+/* Basket - الحتة اللي طالعة نصها */
+.basket-section{background:#fff;padding:50px 30px;overflow:visible}
+.basket-row{display:flex;align-items:center;justify-content:center;gap:40px;max-width:1000px;margin:0 auto}
+.basket-info{width:50%;max-width:380px;text-align:left}
+.mini-title{font-size:11px;font-weight:700;display:block;margin-bottom:8px}
+.basket-desc{font-size:10px;color:#999;line-height:1.6;margin-bottom:15px}
+.basket-items{display:flex;gap:12px;margin-bottom:15px;overflow-x:auto}
+.b-item{flex-shrink:0;text-align:center}
+.b-item img{width:65px;height:40px;object-fit:cover;border-radius:10px;margin-bottom:4px}
+.b-item span{font-size:9px}
+.basket-img{width:50%;max-width:400px}
+.basket-img img{width:100%;border-radius:8px}
+.divider{border-top:1px solid #eee;padding-top:8px;margin-top:10px;font-size:11px;text-align:center}
+
+/* Philosophy */
+.philosophy{background:#fffbf7;padding:50px 30px;text-align:center}
+.phil-row{display:flex;justify-content:center;align-items:center;gap:40px;max-width:1000px;margin:0 auto}
+.phil-img{width:340px}
+.phil-img img{width:100%;border-radius:8px}
+.phil-text{width:360px;text-align:left}
+.phil-item{display:flex;gap:10px;margin-bottom:20px;position:relative}
+.phil-item span{font-size:18px;font-weight:700;font-family:'Playfair Display',serif}
+.phil-item p{font-size:10px;color:#999}
+.arrow{display:none}
+
+/* Instagram */
+.instagram{background:#fdfcfa;padding:40px 30px;text-align:center}
+.insta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:800px;margin:0 auto}
+.insta-grid img{width:100%;height:150px;object-fit:cover;border-radius:6px}
+
+/* Contacts */
+.contacts-map{display:flex;gap:25px;padding:50px 30px;max-width:1100px;margin:0 auto;background:#fff}
+.contact-left{width:280px;flex-shrink:0}
+.section-title.left{text-align:left;margin-bottom:15px;font-size:20px}
+.c-block{margin-bottom:15px}
+.c-block b{font-size:11px;font-family:'Playfair Display',serif;font-style:italic;display:block;margin-bottom:3px}
+.c-block p{font-size:10px;color:#999}
+.map-right{flex:1;background:#eee;border-radius:12px;overflow:hidden;min-height:320px}
+.map-right iframe{width:100%;height:100%;min-height:320px;border:0}
+
+/* Footer */
+.black-footer{background:#1a1a1a;color:#fff;padding:25px 30px}
+.foot-cols{display:flex;justify-content:space-between;gap:20px;max-width:1000px;margin:0 auto;flex-wrap:wrap}
+.black-footer h4{font-size:11px;font-family:'Playfair Display',serif;font-style:italic;margin-bottom:6px}
+.black-footer p{font-size:9px;color:#999;line-height:1.5}
+.socials{display:flex;gap:6px;margin-top:6px}
+.socials span{width:20px;height:20px;background:#ffcc00;color:#000;display:flex;align-items:center;justify-content:center;border-radius:2px;font-size:10px}
+.product-link{text-decoration:none;color:inherit}
+
+/* موبايل */
+@media(max-width:768px){
+  .page{width:100%;margin:0}
+  header{padding:12px 15px;justify-content:center}
+  nav{width:100%;justify-content:center;gap:10px;font-size:11px}
+  .contact{display:none}
+  .hero{flex-direction:column;padding:15px 15px 20px;text-align:center}
+  .hero-text,.hero-img{width:100%}
+  .hero-text h1{font-size:28px}
+  .main-bread{max-width:280px;margin:0 auto}
+  .hot-week,.about-years,.menu-section,.delivery-path,.basket-section,.philosophy,.instagram,.contacts-map,.black-footer{padding:25px 15px}
+  .products{flex-direction:column;align-items:center;gap:20px}
+  .product,.product.center{width:90%;max-width:260px}
+  .product img,.product.center img{width:120px;height:120px}
+  .about-row{flex-direction:column;gap:20px;text-align:center}
+  .about-features,.about-img{width:100%}
+  .feat{text-align:left}
+  .menu-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .m-item img{width:80px;height:80px}
+  .steps{flex-direction:column;align-items:center;gap:20px}
+  .step{width:90%;text-align:center}
+  .s-num{left:50%;transform:translateX(-50%);top:-5px}
+  .basket-row{flex-direction:column;gap:20px}
+  .basket-info,.basket-img{width:100%;max-width:100%}
+  .phil-row{flex-direction:column;gap:20px}
+  .phil-text,.phil-img{width:100%}
+  .insta-grid{grid-template-columns:repeat(2,1fr)}
+  .insta-grid img{height:120px}
+  .contacts-map{flex-direction:column}
+  .contact-left,.map-right{width:100%}
+  .map-right{height:280px;min-height:280px}
+  .map-right iframe{height:280px;min-height:280px}
+}
+
+
+
+/* شيل الخط اللي تحت كلام المنيو */
+nav a, .menu-tabs a, .tab span, .product-link, .product-link h3, .m-item h3{
+  text-decoration:none !important;
+  border-bottom:none !important;
+
+}
+
+
+ .product-link.active{
+  background:#ffcc00;
+  color:#000 !important;
+  padding:6px 14px;
+  border-radius:20px;
+  font-weight:700;
+}
+
+
+.active{
+  background:#ffcc00;
+  border-radius:20px;
+  padding:8px 12px 12px;
+  border-bottom:none !important;
+  opacity:1 !important;
+}

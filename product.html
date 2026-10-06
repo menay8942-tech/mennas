@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Самое горячее</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fdfcfa;font-family:Arial,sans-serif;width:100%;overflow-x:hidden}
+
+.p-page{width:100%;padding:52px 8px 16px 8px}
+.back{font-size:11px;color:#999;text-decoration:none;display:block;margin-bottom:10px;padding-left:2px}
+.section-title{font-size:17px;font-style:italic;font-weight:700;margin-bottom:12px;line-height:1.2;padding-left:2px}
+
+.cart-float{background:#ff6b35;color:#fff;padding:8px 12px;border-radius:20px;font-size:11px;font-weight:700;cursor:pointer;position:fixed;top:8px;right:8px;z-index:9999;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+
+.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%}
+.mini-card{background:#fffdf7;border:1px solid #f3e9d8;border-radius:12px;padding:8px 4px;text-align:center;width:100%}
+.mini-card img{width:62px;height:62px;object-fit:cover;border-radius:50%;display:block;margin:0 auto 5px auto}
+.mini-card h4{font-size:10px;color:#2c3e9e;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mini-card p{font-size:7px;color:#aaa;height:14px;overflow:hidden;margin-bottom:3px;line-height:1.1}
+.mini-card b{font-size:10px;display:block;margin-bottom:5px}
+.mini-btn{background:#ffcc00;border:none;padding:5px 0;border-radius:12px;font-size:9px;font-weight:700;width:100%;cursor:pointer}
+.mini-btn.done{background:#2ecc71;color:#fff}
+
+.cart-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:10000;justify-content:flex-end}
+.cart-overlay.open{display:flex}
+.cart-box{width:85%;max-width:300px;background:#fffdf7;height:100%;padding:12px;overflow-y:auto}
+.cart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.c-item{display:flex;gap:6px;align-items:center;background:#fff;border:1px solid #f3e9d8;border-radius:8px;padding:6px;margin-bottom:6px}
+.c-item img{width:32px;height:32px;border-radius:50%;object-fit:cover}
+.c-item-info{flex:1;min-width:0}
+.c-item-info b{font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.c-item-info small{font-size:8px;color:#888}
+.del-btn{background:#ff6b6b;color:#fff;border:none;width:18px;height:18px;border-radius:50%;font-size:10px}
+.wa-btn{background:#25D366;color:#fff;border:none;padding:10px;border-radius:20px;width:100%;font-weight:700;margin-top:8px;font-size:12px}
+.wa-btn:disabled{background:#ccc}
+
+@media(min-width:400px){
+.mini-card img{width:72px;height:72px}
+}
+@media(min-width:768px){
+.p-page{max-width:900px;margin:0 auto;padding:70px 16px 20px}
+.mini-grid{grid-template-columns:repeat(4,1fr)}
+.mini-card img{width:90px;height:90px}
+}
+</style>
+</head>
+<body>
+<div class="cart-float" onclick="openCart()">🛒 Корзина: <span id="cNum">0</span></div>
+<div class="cart-overlay" id="cartOverlay" onclick="if(event.target==this) closeCart()">
+<div class="cart-box">
+<div class="cart-head"><h3 style="font-style:italic;font-size:14px">Ваша корзина</h3><button onclick="closeCart()" style="border:none;background:none;font-size:18px">✕</button></div>
+<div id="cartList"></div>
+<div style="margin-top:12px;border-top:1px solid #eee;padding-top:10px;text-align:center">
+<b style="font-size:13px">Итого: <span id="cTotal">0 ₸</span></b>
+<button class="wa-btn" id="waBtn" onclick="sendWA()">📲 Отправить в WhatsApp</button>
+<button onclick="clearCart()" style="background:none;border:none;color:#999;font-size:9px;margin-top:6px">Очистить</button>
+</div>
+</div>
+</div>
+
+<div class="p-page">
+<a href="index.html" class="back">← На главную</a>
+<h1 class="section-title">Самое горячее на этой неделе</h1>
+<div class="mini-grid" id="miniGrid"></div>
+</div>
+
+<script>
+const WA_NUMBER="201000000000";
+const products={
+1:{title:'Чиабатта',ing:'Пшеничная мука, вода, дрожжи',price:'150 ₸',img:'mg/1.jpg'},
+2:{title:'Чиабатта',ing:'Манная крупа и мука',price:'180 ₸',img:'mg/2.jpg'},
+3:{title:'Гриссини',ing:'Пшеничная мука, вода, молоко',price:'120 ₸',img:'mg/3.jpg'},
+4:{title:'Микетта',ing:'Мука, вода, кунжут',price:'150 ₸',img:'mg/11.webp'},
+5:{title:'Альтмура',ing:'Мука, вода, соль',price:'160 ₸',img:'mg/12.avif'},
+6:{title:'Чеппа',ing:'Мука, кунжут',price:'140 ₸',img:'mg/13.avif'},
+7:{title:'Кемик',ing:'Мука, вода, соль',price:'155 ₸',img:'mg/14.avif'},
+8:{title:'Кончате',ing:'Мука, кунжут, соль',price:'145 ₸',img:'mg/15.avif'},
+9:{title:'Багет',ing:'Мука, вода, дрожжи',price:'170 ₸',img:'mg/16.avif'},
+10:{title:'Ржаной',ing:'Ржаная мука, закваска',price:'190 ₸',img:'mg/17.avif'},
+11:{title:'Кукурузный',ing:'Кукурузная мука',price:'200 ₸',img:'mg/18.avif'}
+};
+let cart=JSON.parse(localStorage.getItem('bakery_cart')||'[]');
+function init(){
+let h='';for(let id in products){let p=products[id];h+=`<div class="mini-card"><img src="${p.img}" onerror="this.src='mg/16.avif'" loading="lazy"><h4>${p.title}</h4><p>${p.ing}</p><b>${p.price}</b><button class="mini-btn" onclick="addMini(${id},this)">В корзину</button></div>`}
+document.getElementById('miniGrid').innerHTML=h;updateCartIcon();
+}
+function addMini(id,btn){let ex=cart.find(x=>x.id==id);if(ex)ex.qty++;else cart.push({id,qty:1,...products[id]});localStorage.setItem('bakery_cart',JSON.stringify(cart));if(btn){btn.innerText='✓ Добавлено';btn.classList.add('done');setTimeout(()=>{btn.innerText='В корзину';btn.classList.remove('done')},1000);}updateCartIcon();updateCartList();}
+function updateCartIcon(){document.getElementById('cNum').innerText=cart.reduce((s,i)=>s+i.qty,0);}
+function updateCartList(){let tot=0,html='';if(cart.length==0)html="<p style='text-align:center;color:#999;font-size:11px;margin-top:20px'>Корзина пуста 🥐</p>";cart.forEach(it=>{let n=parseInt(it.price);tot+=n*it.qty;html+=`<div class="c-item"><img src="${it.img}" onerror="this.src='mg/16.avif'"><div class="c-item-info"><b>${it.title}</b><small>${it.price} x ${it.qty}</small></div><button class="del-btn" onclick="delItem(${it.id})">✕</button></div>`});document.getElementById('cartList').innerHTML=html;document.getElementById('cTotal').innerText=tot+' ₸';document.getElementById('waBtn').disabled=cart.length==0;}
+function delItem(id){cart=cart.filter(x=>x.id!=id);localStorage.setItem('bakery_cart',JSON.stringify(cart));updateCartIcon();updateCartList();}
+function clearCart(){cart=[];localStorage.setItem('bakery_cart',JSON.stringify(cart));updateCartIcon();updateCartList();}
+function openCart(){document.getElementById('cartOverlay').classList.add('open');updateCartList();}
+function closeCart(){document.getElementById('cartOverlay').classList.remove('open');}
+function sendWA(){if(cart.length==0)return;let t="*Новый заказ Bakery* 🍞%0A%0A",tot=0;cart.forEach(i=>{let n=parseInt(i.price);tot+=n*i.qty;t+=`- ${i.title} (${i.price}) x ${i.qty}%0A`;});t+=`%0A*Итого: ${tot} ₸*%0A`;window.open(`https://wa.me/${WA_NUMBER}?text=${t}`,"_blank");}
+init();
+</script>
+</body>
+</html>

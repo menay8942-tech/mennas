@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bakery - Мы делаем хлеб полезным</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+.product-link{text-decoration:none;color:inherit;display:block}
+.product-link h3{color:#2c3e9e}
+.cart-float{position:fixed;top:15px;right:15px;background:#ff6b35;color:#fff;padding:10px 18px;border-radius:30px;font-size:12px;font-weight:700;z-index:999;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,.15)}
+.m-item{cursor:pointer;transition:.3s}
+.m-item:hover{transform:translateY(-4px)}
+.m-item img{border-radius:50% / 60%!important;height:120px!important;object-fit:cover}
+</style>
+</head>
+<body>
+
+<div class="cart-float" onclick="location.href='product.html'">🛒 Корзина: <span id="cNum">0</span></div>
+
+<div class="page">
+  <header>
+    <div class="logo"><span class="icon">🌾</span> <div><b>Bakery</b><small>вкусный хлеб</small></div></div>
+    <nav><a href="#menu">Меню</a><a href="#about">О нас</a><a href="#delivery">Доставка</a><a href="#contact">Контакты</a></nav>
+    <div class="contact"><small>Прием заказов: 10:00 до 22:00</small><b>+7 (483) 774-093-379</b></div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Мы делаем хлеб<br><i>полезным и вкусным</i></h1>
+      <p>Свежий хлеб из натуральных ингредиентов<br>с бесплатной доставкой к порогу вашего дома</p>
+      <button class="order-btn" onclick="location.href='product.html'">Заказать хлеб</button>
+    </div>
+    <div class="hero-img">
+      <img src="mg/food-arrangement-with-bread-top-view.jpg" class="main-bread" alt="bread" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600'">
+    </div>
+  </section>
+
+  <!-- التعديل هنا - كل صورة صفحة لوحدها -->
+  <section class="hot-week" id="about">
+    <h2 class="section-title">Самое горячее на этой неделе</h2>
+    <div class="products">
+      <a href="product.html" class="product-link">
+        <div class="product">
+          <img src="mg/1.jpg" alt="Чиабатта" onerror="this.src='https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400'">
+          <h3>Чиабатта</h3>
+          <p>Пшеничная мука, вода, дрожжи<br>и соль</p>
+          <b style="font-size:12px;display:block;margin-top:6px">150 ₸</b>
+        </div>
+      </a>
+      <a href="hot.html" class="product-link">
+        <div class="product center">
+          <img src="mg/2.jpg" alt="Чиабатта" onerror="this.src='https://images.unsplash.com/photo-1589367920969-ab8c050bbb04?w=400'">
+          <h3>Чиабатта</h3>
+          <p>Манная крупа и мука из пшеницы<br>твердых сортов</p>
+          <b style="font-size:12px;display:block;margin-top:6px">180 ₸</b>
+        </div>
+      </a>
+      <a href="grissini.html" class="product-link">
+        <div class="product">
+          <img src="mg/3.jpg" alt="Гриссини" onerror="this.src='https://images.unsplash.com/photo-1598373182133-52452f7691ef?w=400'">
+          <h3>Гриссини</h3>
+          <p>Пшеничная мука, вода, молоко,<br>дрожжи и соль.</p>
+          <b style="font-size:12px;display:block;margin-top:6px">120 ₸</b>
+        </div>
+      </a>
+    </div>
+    <button class="order-btn" onclick="window.location.href='product.html'">Смотреть все</button>
+  </section>
+
+  <section class="about-years">
+    <h2 class="about-title">Выпекаем с душой и любовью уже 11 лет</h2>
+    <div class="about-row">
+      <div class="about-features">
+        <div class="feat"><span class="f-icon">🌾</span><div><h4>Натуральные ингредиенты</h4><p>Используем муку из био-зерна, выращенного<br>без вредных химических удобрений</p></div></div>
+        <div class="feat"><span class="f-icon">🙌</span><div><h4>Домашнее производство</h4><p>Наши пекари готовят хлеб вручную,<br>с душой и любовью</p></div></div>
+        <div class="feat"><span class="f-icon">📜</span><div><h4>Традиционные рецепты</h4><p>Рецепты нашего хлеба передаются<br>из поколения в поколение</p></div></div>
+      </div>
+      <div class="about-img">
+        <img src="mg/about1.jpg" alt="bread board" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600'">
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-section" id="menu">
+    <h2 class="section-title">Наше меню</h2>
+    <div class="menu-tabs">
+      <div class="tab active"><svg viewBox="0 0 64 32" class="tab-icon"><ellipse cx="18" cy="18" rx="16" ry="10" fill="none" stroke="#000" stroke-width="1.2"/><path d="M10 14 Q18 8 26 14" fill="none" stroke="#000" stroke-width="1"/><ellipse cx="38" cy="16" rx="16" ry="10" fill="none" stroke="#000" stroke-width="1.2"/><path d="M30 12 Q38 6 46 12" fill="none" stroke="#000" stroke-width="1"/></svg><span>Булочки</span></div>
+      <div class="tab"><svg viewBox="0 0 64 20" class="tab-icon"><ellipse cx="32" cy="10" rx="30" ry="8" fill="none" stroke="#000" stroke-width="1.2"/><path d="M10 8 Q15 12 20 8 M22 7 Q27 11 32 7 M34 6 Q39 10 44 6 M46 5 Q51 9 56 5" fill="none" stroke="#000" stroke-width="1"/></svg><span>Багеты</span></div>
+      <div class="tab"><svg viewBox="0 0 64 32" class="tab-icon"><path d="M4 20 L4 8 Q4 4 12 4 L52 4 Q60 4 60 8 L60 20 Q60 24 52 24 L12 24 Q4 24 4 20" fill="none" stroke="#000" stroke-width="1.2"/><path d="M4 20 Q12 16 20 20 M20 18 Q28 14 36 18 M36 16 Q44 12 52 16" fill="none" stroke="#000" stroke-width="1"/></svg><span>Пшеничный</span></div>
+      <div class="tab"><svg viewBox="0 0 64 32" class="tab-icon"><ellipse cx="32" cy="16" rx="28" ry="12" fill="none" stroke="#000" stroke-width="1.2"/><path d="M12 12 Q18 6 26 10 M38 8 Q44 4 50 8 M18 20 Q26 14 34 18 M42 20 Q48 16 54 20" fill="none" stroke="#000" stroke-width="1"/></svg><span>Ржаной</span></div>
+      <div class="tab"><svg viewBox="0 0 64 32" class="tab-icon"><path d="M6 18 L6 8 Q6 4 14 4 L50 4 Q58 4 58 8 L58 18 L48 26 L10 26 Z" fill="none" stroke="#000" stroke-width="1.2"/><circle cx="20" cy="10" r="1.5" fill="none" stroke="#000" stroke-width="0.8"/><circle cx="28" cy="9" r="1.5" fill="none" stroke="#000" stroke-width="0.8"/><circle cx="36" cy="8" r="1.5" fill="none" stroke="#000" stroke-width="0.8"/></svg><span>Кукурузный</span></div>
+    </div>
+    <div class="menu-grid">
+      <div class="m-item" onclick="location.href='product.html'"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300"><h3>Микетта</h3><p>Мука, вода, дрожжи, соль, кунжут<br><b>150 ₸</b></p></div>
+      <div class="m-item" onclick="location.href='hot.html'"><img src="mg/jillwellington-french-bread-1433519_1920.jpg" onerror="this.src='https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=300'"><h3>Альтмура</h3><p>Мука, вода, дрожжи, соль<br><b>150 ₸</b></p></div>
+      <div class="m-item" onclick="location.href='grissini.html'"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=300"><h3>Чеппа</h3><p>Мука, вода, дрожжи, соль, кунжут<br><b>150 ₸</b></p></div>
+      <div class="m-item" onclick="location.href='product.html'"><img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=300"><h3>Кемик</h3><p>Мука, вода, дрожжи, соль<br><b>150 ₸</b></p></div>
+      <div class="m-item" onclick="location.href='hot.html'"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300"><h3>Кончате</h3><p>Мука, вода, дрожжи, соль, кунжут<br><b>150 ₸</b></p></div>
+      <div class="m-item" onclick="location.href='grissini.html'"><img src="mg/slices-brown-bread-with-oat-grains-marble-surface.jpg" onerror="this.src='https://images.unsplash.com/photo-1598373182133-52452f7691ef?w=300'"><h3>Альтмура</h3><p>Мука, вода, дрожжи, соль<br><b>150 ₸</b></p></div>
+    </div>
+  </section>
+
+  <section class="delivery-path" id="delivery">
+    <div class="wave-top"></div>
+    <h2 class="section-title">Горячий хлеб уже в пути</h2>
+    <div class="steps">
+      <div class="step"><span class="s-icon">🎁</span><div class="s-num">1</div><h4>Заказ</h4><p>Закажите хлеб<br>онлайн или по телефону</p></div>
+      <div class="step"><span class="s-icon">🛵</span><div class="s-num">2</div><h4>Доставка</h4><p>Выберите время<br>доставки и способ оплаты</p></div>
+      <div class="step"><span class="s-icon">😋</span><div class="s-num">3</div><h4>Поощрение</h4><p>Наслаждайтесь изысканным<br>вкусом и ароматом</p></div>
+    </div>
+    <div class="scooter">🛵</div>
+  </section>
+
+  <section class="basket-section">
+    <h2 class="section-title">Еженедельная корзина хлеба</h2>
+    <div class="basket-row">
+      <div class="basket-info">
+        <span class="mini-title">#1 Микс</span>
+        <p class="basket-desc">Подпишитесь на еженедельную доставку хлебной корзины.<br>Аккуратно доставим к порогу вашего дома в удобное вам время.</p>
+        <div class="basket-items">
+          <div class="b-item"><img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=200"><span>2 багета</span></div>
+          <div class="b-item"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200"><span>3 булочки</span></div>
+          <div class="b-item"><img src="https://images.unsplash.com/photo-1598373182133-52452f7691ef?w=200"><span>1 ржаной</span></div>
+        </div>
+        <div class="divider">🌾</div>
+        <button class="order-btn" onclick="location.href='product.html'">Подписаться</button>
+      </div>
+      <div class="basket-img">
+        <img src="mg/basket.jpg" alt="bread basket" onerror="this.src='https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=600'">
+      </div>
+    </div>
+  </section>
+
+  <section class="philosophy">
+    <h2 class="section-title">Наша философия</h2>
+    <div class="phil-row">
+      <div class="phil-img"><img src="mg/baker.jpg" alt="baker" onerror="this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=500'"></div>
+      <div class="phil-text">
+        <div class="phil-item item1"><span>01/</span><p>Мы современные пекари,<br>с многолетним опытом<br>и сохраняем традиции</p><i class="arrow">↗</i></div>
+        <div class="phil-item item2"><span>02/</span><p>Все ингредиенты, используемые<br>при выпечке хлеба имеют<br>органическое происхождение</p><i class="arrow arrow2">↙</i></div>
+        <div class="phil-item item3"><span>03/</span><p>Наша выпечка - это 100%<br>ремесленный продукт, изготовленный<br>с душой и любовью</p></div>
+        <button class="order-btn small">Узнать больше</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="instagram">
+    <h2 class="section-title">Наш Instagram</h2>
+    <div class="insta-grid">
+      <img src="mg/2.jpg" onerror="this.src='https://images.unsplash.com/photo-1517141542577-d15845be1e9a?w=300'">
+      <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300">
+      <img src="mg/1.jpg" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300'">
+      <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=300">
+      <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300">
+      <img src="mg/3.jpg" onerror="this.src='https://images.unsplash.com/photo-1598373182133-52452f7691ef?w=300'">
+    </div>
+  </section>
+
+  <section class="contacts-map" id="contact">
+    <div class="contact-left">
+      <h2 class="section-title left">Мы всегда вам рады</h2>
+      <div class="c-block"><b>Прием заказов:</b><p>+7 702 777 77 77</p></div>
+
+      <div class="c-block"><b>Приходите к нам:</b><p>Loft Pineapple, 22 Pink Street, New York</p></div>
+    </div>
+    <div class="map-right">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.123!2d14.42076!3d50.08804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTDCsDA1JzE3LjAiTiAxNMKwMjUnMTQuNyJF!5e0!3m2!1sen!2seg!4v123" width="100%" height="300" style="border:0;border-radius:8px" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <footer class="black-footer">
+    <div class="foot-cols">
+      <div><h4>Способы оплаты</h4><p>Вы можете оплатить свой<br>заказ любым удобным<br>наличным при получении</p></div>
+      <div><h4>Доставка</h4><p>Доставка осуществляется<br>бесплатно, два раза в день<br>по всему Алматы</p></div>
+      <div><h4>Партнерам</h4><p>Стать поставщиком</p></div>
+      <div><h4>Подписывайтесь</h4><div class="socials"><span>📷</span><span>📘</span><span>✉️</span></div></div>
+    </div>
+  </footer>
+</div>
+
+<script>
+function updateCart(){
+  let cart=JSON.parse(localStorage.getItem('bakery_cart')||'[]');
+  let total=cart.reduce((s,i)=>s+i.qty,0);
+  let el=document.getElementById('cNum');
+  if(el) el.innerText=total;
+}
+updateCart();
+</script>
+
+</body>
+</html>
